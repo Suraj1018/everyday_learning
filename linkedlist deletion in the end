@@ -1,0 +1,80 @@
+class Node
+{
+    constructor(z)
+    {
+        this.value=z;
+        this.next=undefined;
+    }
+}
+
+function insertion_start(head,value)
+{
+    new_node=new Node(value);
+    new_node.next=head;
+    return new_node;
+}
+
+function insertion_end(head,value)
+{
+    new_node=new Node(value);
+    temp=head;
+    while(temp.next != null)
+    {
+        temp=temp.next
+    }
+    temp.next=new_node;
+}
+
+function insertion_middle(head,n,value)
+{
+    new_node=new Node(value);
+    temp=head;
+    while(n-1>0)
+    {
+        temp=temp.next;
+        n=n-1;
+    }
+    x=temp.next;
+    temp.next=new_node;
+    new_node.next=x;
+}
+
+function deletion_end(head)
+{
+    temp=head;
+    while(temp.next!=null && temp.next.next!=null)
+    {
+        temp=temp.next;
+    }
+    temp.next=temp.next.next;
+}
+
+function display(head)
+{
+    let temp=head;
+    while(temp!=null)
+    {
+        console.log(temp.value);
+        temp=temp.next;
+    }
+}
+
+head=new Node(5);
+head=insertion_start(head,10);
+head=insertion_start(head,20);
+head=insertion_start(head,30);
+insertion_end(head,0);
+insertion_end(head,-5);
+insertion_middle(head,3,100);
+insertion_middle(head,4,200);
+head=head.next;
+head=head.next;
+deletion_end(head);
+display(head);
+
+OUTPUT:
+10
+100
+200
+5
+0
