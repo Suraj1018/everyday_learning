@@ -1,0 +1,37 @@
+class Node
+{
+    constructor(z)
+    {
+        this.value=z;
+        this.next=undefined;
+    }
+}
+
+function insertion_start(head,value)
+{
+    new_node=new Node(value);
+    new_node.next=head;
+    return new_node;
+}
+
+function display(head)
+{
+    let temp=head;
+    while(temp!=null)
+    {
+        console.log(temp.value);
+        temp=temp.next;
+    }
+}
+
+head=new Node(5);
+head=insertion_start(head,10);
+head=insertion_start(head,20);
+head=insertion_start(head,30);
+display(head);
+
+OUTPUT:
+30
+20
+10
+5
